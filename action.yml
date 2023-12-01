@@ -1,6 +1,6 @@
 name: 'StellarStandards'
 description: 'A github action that makes suggestions for improving your code in a given PR'
-author: 'Your name or organization here'
+author: 'StellarStandards'
 
 # Define your inputs here.
 inputs:

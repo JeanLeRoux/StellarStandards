@@ -1,7 +1,7 @@
 {
   "name": "stellar-standards-action",
   "description": "GitHub Actions that makes makes clean code suggestions on your PR",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "",
   "private": false,
   "homepage": "https://github.com/JeanLeRoux/StellarStandards#readme",
