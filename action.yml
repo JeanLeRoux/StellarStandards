@@ -1,0 +1,19 @@
+name: 'StellarStandards'
+description: 'A github action that makes suggestions for improving your code in a given PR'
+author: 'Your name or organization here'
+
+# Define your inputs here.
+inputs:
+  milliseconds:
+    description: 'Your input description here'
+    required: true
+    default: '1000'
+
+# Define your outputs here.
+outputs:
+  time:
+    description: 'Your output description here'
+
+runs:
+  using: node20
+  main: dist/index.js
