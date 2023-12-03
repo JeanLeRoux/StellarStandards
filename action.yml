@@ -4,15 +4,14 @@ author: 'StellarStandards'
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
+  GITHUB_TOKEN:
+    description: 'Github authentication token needed to add comments to PRs'
     required: true
-    default: '1000'
 
 # Define your outputs here.
 outputs:
-  time:
-    description: 'Your output description here'
+  comment:
+    description: 'The comment that was added to the PR (for testing purposes)'
 
 runs:
   using: node20
