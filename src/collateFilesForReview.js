@@ -16,7 +16,7 @@ const execPromise = command => {
   })
 }
 
-export const collateFilesForReview = async () => {
+const collateFilesForReview = async () => {
   try {
     // 1. Get the files that have had lines changed in the PR
     await execPromise(`git diff HEAD^1 --numstat --output=diff_stats_raw.txt`)
