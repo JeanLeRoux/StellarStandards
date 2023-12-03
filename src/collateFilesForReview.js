@@ -26,7 +26,8 @@ const collateFilesForReview = async () => {
       `awk '$1 >= 3 { print $3 }' diff_stats_raw.txt > diff_stats_only_paths_with_gte_3_lines_added.txt`
     )
 
-    // 3. Use file paths to get the total number of lines in each file
+    // 3. Remove files that are longer than 200 lines
+    // This will create a file that has the file paths the files that should be reviewed by the AI
     const readInterface = readline.createInterface({
       input: fs.createReadStream(
         'diff_stats_only_paths_with_gte_3_lines_added.txt'
@@ -35,17 +36,12 @@ const collateFilesForReview = async () => {
       console: false
     })
 
-    let fileData = ''
-
-    // 4. Remove files that are longer than 200 lines
-    // This will create a file that has the file paths the files that should be reviewed by the AI
     for await (const filePath of readInterface) {
       const stdout = await execPromise(
         `cd .. && wc -l ${filePath} | awk '{if ($1 < 200) print $2}' >> src/diff_stats_only_paths_with_gte_3_lines_added_and_lt_200_lines.txt`
       )
       console.log(`path: ${filePath}`)
       console.log(`stdout: ${stdout}`)
-      fileData += stdout
     }
   } catch (error) {
     console.error(error)
